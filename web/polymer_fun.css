@@ -27,3 +27,14 @@ h1, p {
   -webkit-user-select: none;
   user-select: none;
 }
+
+#left_bar
+{
+  width: 300px;
+  float: left;
+}
+
+#content
+{
+  float: left;
+}

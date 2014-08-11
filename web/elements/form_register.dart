@@ -7,6 +7,7 @@ class FormRegister extends FormElement with Polymer, Observable
   @observable Map data = toObservable({"email": "", "password": ""});
   
   InputElement email, password;
+  RegExp r = new RegExp(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$");
   
   FormRegister.created() : super.created()
   {
@@ -27,7 +28,22 @@ class FormRegister extends FormElement with Polymer, Observable
     // Register button was clicked.
     e.preventDefault();
     
-    print(data.toString());
-    email.style.borderColor = 'red';
+    if (validate_email())
+      print(data.toString());
+    else
+      print("Validation failed!");
+  }
+  
+  void email_textbox_change(Event e)
+  {
+    if (validate_email())
+      email.style.borderColor = 'green';
+    else
+      email.style.borderColor = 'red';
+  }
+  
+  bool validate_email()
+  {
+    return r.hasMatch(data["email"]);
   }
 }

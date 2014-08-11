@@ -1,20 +1,23 @@
 <link rel="import" href="packages/polymer/polymer.html">
 
 <polymer-element name="my-random">
-  <style>
-  :host {
-    margin: 0 auto;
-    padding: 10px;
-    background-color: gray;
-    border: 1px solid black;
-    display: inline-block;
-  }
-  </style>
+  
   <template>
-  <div>
-    <h3>{{number}}</h3>
-    <button id="random_click" on-click="{{random_click}}">Click!</button>
-  </div>
+    <style>
+    :host {
+      margin: 5px;
+      padding: 10px;
+      background-color: lightgray;
+      border: 1px solid black;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    </style>
+  
+    <div>
+      <h3>{{number}}</h3>
+      <button id="random_click" on-click="{{random_click}}">Click!</button>
+    </div>
   </template>
   
   <script type="application/dart" src="random_number.dart"></script>

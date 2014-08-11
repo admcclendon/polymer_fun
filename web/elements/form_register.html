@@ -13,7 +13,7 @@
     }
     :host label
     {
-      width: 150px;
+      width: 80px;
       display: inline-block;
       text-align: right;
     }
@@ -21,7 +21,7 @@
     <div>
       <div>
         <label>Email</label>
-        <input type="text" value="{{data['email']}}" id="email_textbox"/>
+        <input type="text" value="{{data['email']}}" id="email_textbox" on-change="{{email_textbox_change}}" on-keypress="{{email_textbox_change}}"/>
       </div>
       <div>
         <label>Password</label>
