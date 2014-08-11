@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Polymer fun</title>
+    
+    <script src="packages/web_components/platform.js"></script>
+    <script src="packages/web_components/dart_support.js"></script>
+    
+    <link rel="import" href="elements/random_number.html">
+    <link rel="import" href="elements/form_register.html">
+    
+    <script async type="application/dart" src="polymer_fun.dart"></script>
+    <script async src="packages/browser/dart.js"></script>
+    
+    <link rel="stylesheet" href="polymer_fun.css">
+  </head>
+  <body>
+    <h1>Polymer fun</h1>
+    
+    <p>Hello world from Dart!</p>
+    
+    <div id="sample_container_id">
+      <my-random></my-random>
+      <form is="form-register" id="register_form"></form>
+      <form is="form-register" id="register_form2"></form>
+    </div>
+
+  </body>
+</html>
