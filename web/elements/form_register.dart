@@ -21,6 +21,8 @@ class FormRegister extends FormElement with Polymer, Observable
     
     email = $['email_textbox'];
     password = $['password_textbox'];
+    
+    validate_email();
   }
   
   void register_button_click(Event e, var detail, Node target)
@@ -36,14 +38,16 @@ class FormRegister extends FormElement with Polymer, Observable
   
   void email_textbox_change(Event e)
   {
-    if (validate_email())
-      email.style.borderColor = 'green';
-    else
-      email.style.borderColor = 'red';
+    validate_email();
   }
   
   bool validate_email()
   {
-    return r.hasMatch(data["email"]);
+    bool result = r.hasMatch(data["email"]);
+    if (result)
+      email.style.borderColor = 'lightgreen';
+    else
+      email.style.borderColor = 'red';
+    return result;
   }
 }
