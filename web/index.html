@@ -11,6 +11,7 @@
     
     <link rel="import" href="elements/random_number.html">
     <link rel="import" href="elements/form_register.html">
+    <link rel="import" href="elements/chat_window.html">
     
     <script async type="application/dart" src="polymer_fun.dart"></script>
     <script async src="packages/browser/dart.js"></script>
@@ -27,7 +28,7 @@
         <form is="form-register" id="register_form"></form>
       </div>
       <div id="content">
-        <my-random></my-random>
+        <div is="chat-window" id="window_chat"></div>
       </div>
     </div>
 

@@ -1,0 +1,46 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<polymer-element name="chat-window" extends="div">
+  
+  <template>
+    <style>
+    :host {
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: lightgray;
+      padding: 10px;
+      margin: 5px;
+    }
+    :host #contentarea
+    {
+      background-color: white;
+      padding: 10px 5px;
+      overflow-y: scroll;
+      height: 400px;
+    }
+    :host textarea
+    {
+      height: 100px;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    :host div
+    {
+      margin-bottom: 5px;
+    }
+    </style>
+    
+    <div>
+      <div id="contentarea"></div>
+    </div>
+    <div>
+      <textarea id="messagearea" value="{{data['message']}}"></textarea>
+    </div>
+    <div>
+      <button on-click="{{send_button_click}}">Send</button>
+    </div>
+  </template>
+  
+  <script type="application/dart" src="chat_window.dart"></script>
+</polymer-element>

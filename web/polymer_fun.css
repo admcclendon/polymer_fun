@@ -37,4 +37,5 @@ h1, p {
 #content
 {
   float: left;
+  width: 600px;
 }

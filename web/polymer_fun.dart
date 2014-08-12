@@ -1,19 +1,22 @@
 import 'dart:html';
 import 'dart:convert';
 import 'package:polymer/polymer.dart';
+import 'elements/chat_window.dart';
 import 'elements/form_register.dart';
 
 Client c;
+ChatWindow cw;
 
 void main() {
   initPolymer();
   c = new Client();
   
   FormRegister f = querySelector("#register_form");
+  cw = querySelector("#window_chat");
   f.on["login"].listen((CustomEvent e) {
     c.Login(e.detail);
   });
-  f.on["message"].listen((CustomEvent e) {
+  cw.on["message"].listen((CustomEvent e) {
     c.SendMessage(e.detail);
   });
 }
@@ -48,7 +51,16 @@ class Client
   
   void onDisconnected()
   {
-    
+    try
+    {
+      // try to close then reopen the socket.
+      ws.close();
+    }
+    catch(e) { } // Do anything??
+    finally
+    {
+      connect();
+    }
   }
   
   void Login(String username)
@@ -68,10 +80,10 @@ class Client
     switch (action)
     {
       case 'notify':
-        print(json['message']);
+        cw.PrintMessage(json['message']);
         break;
       case 'message':
-        print(new DateTime.now().toString() + " " + json['from'] + ": " + json['message']);
+        cw.PrintMessage(new DateTime.now().toString() + " " + json['from'] + ": " + json['message']);
         break;
       case 'login':
         if (json['result'])

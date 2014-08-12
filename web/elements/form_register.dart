@@ -1,3 +1,5 @@
+library elements.form_register;
+
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
